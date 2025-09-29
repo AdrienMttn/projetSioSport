@@ -202,6 +202,7 @@
             this.Name = "Modif_Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Modif_Add";
+            this.Load += new System.EventHandler(this.Modif_Add_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

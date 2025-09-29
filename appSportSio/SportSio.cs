@@ -197,5 +197,22 @@ namespace appSportSio
         {
 
         }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListViewItem item = listSportif.SelectedItems[0];
+            Sportif sportifToEdit = new Sportif((int.Parse(listSportif.SelectedItems[0].SubItems[0].Text),
+                listSportif.SelectedItems[0].SubItems[1].Text,
+                listSportif.SelectedItems[0].SubItems[2].Text,
+                DateTime.Parse(listSportif.SelectedItems[0].SubItems[3].Text),
+                listSportif.SelectedItems[0].SubItems[4].Text,
+                listSportif.SelectedItems[0].SubItems[5].Text,
+                listSportif.SelectedItems[0].SubItems[6].Text,
+                listSportif.SelectedItems[0].SubItems[7].Text),
+                listSportif.SelectedItems[0].SubItems[8].Text);
+
+            Modif_Add modifAdd = new Modif_Add(sportifToEdit);
+           );
+        }
     }
 }
