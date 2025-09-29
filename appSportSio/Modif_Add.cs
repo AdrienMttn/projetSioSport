@@ -17,6 +17,7 @@ namespace appSportSio
         {
             InitializeComponent();
         }
+
         public Modif_Add(Sportif unSportif)
         {
             InitializeComponent();
