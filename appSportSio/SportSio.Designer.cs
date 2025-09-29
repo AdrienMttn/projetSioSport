@@ -40,11 +40,15 @@
             // 
             // filterSelect
             // 
+            this.filterSelect.DisplayMember = "jghja";
             this.filterSelect.FormattingEnabled = true;
+            this.filterSelect.Items.AddRange(new object[] {
+            "all"});
             this.filterSelect.Location = new System.Drawing.Point(88, 33);
             this.filterSelect.Name = "filterSelect";
             this.filterSelect.Size = new System.Drawing.Size(121, 21);
             this.filterSelect.TabIndex = 0;
+            this.filterSelect.SelectedIndexChanged += new System.EventHandler(this.filterSelect_SelectedIndexChanged);
             // 
             // searchInput
             // 
@@ -64,6 +68,7 @@
             this.listSportif.TabIndex = 2;
             this.listSportif.UseCompatibleStateImageBehavior = false;
             this.listSportif.View = System.Windows.Forms.View.Details;
+            this.listSportif.SelectedIndexChanged += new System.EventHandler(this.listSportif_SelectedIndexChanged_1);
             this.listSportif.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listSportif_MouseClick);
             // 
             // editSportif
@@ -73,13 +78,13 @@
             this.modifierToolStripMenuItem});
             this.editSportif.Name = "editSportif";
             this.editSportif.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.editSportif.Size = new System.Drawing.Size(181, 70);
+            this.editSportif.Size = new System.Drawing.Size(130, 48);
             this.editSportif.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
@@ -93,12 +98,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1046, 450);
             this.Controls.Add(this.listSportif);
             this.Controls.Add(this.searchInput);
             this.Controls.Add(this.filterSelect);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SportSio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Affichage des sportifs";
+            this.Load += new System.EventHandler(this.SportSio_Load);
             this.editSportif.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

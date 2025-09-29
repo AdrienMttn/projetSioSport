@@ -20,11 +20,6 @@ namespace appSportSio
     {
         List<Sportif> sportifs;
         List<Sportif> filteredSportifs;
-        private MySqlConnection createMySqlCnx()
-        {
-            string chConnexion = ConfigurationManager.ConnectionStrings["cnxBdSport"].ConnectionString;
-            return new MySqlConnection(chConnexion);
-        }
         public SportSio()
         {
             InitializeComponent();
@@ -33,12 +28,7 @@ namespace appSportSio
 
         private void initValue()
         {
-            
-            //MySqlConnection cnx = createMySqlCnx();
-            MySqlConnection cnx = BDD.createMySqlCnx();
-            cnx.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Sportif", cnx);
-            MySqlDataReader reader = cmd.ExecuteReader();
+            MySqlDataReader reader = BDD.initData();
             for (int i = 0; i < reader.FieldCount; i++)
             {
                 string columnName = reader.GetName(i);
@@ -49,35 +39,75 @@ namespace appSportSio
             listSportif.GridLines = true;
             listSportif.AllowColumnReorder = true;
             initListSportif(reader); 
-            cnx.Close();
         }
 
         private void filter()
         {
             string query = searchInput.Text.ToLower();
-            filteredSportifs = sportifs.Where(sportif => sportif.Nom.ToLower().Contains(query) ||
-            sportif.Prenom.ToLower().Contains(query) ||
-            sportif.Id.ToString().Contains(query) ||
-            sportif.DateNaissance.ToString("yyyy-MM-dd").ToLower().Contains(query) ||
-            sportif.Rue.ToLower().Contains(query) ||
-            sportif.CodePostal.ToLower().Contains(query) ||
-            sportif.Ville.ToLower().Contains(query) ||
-            sportif.NiveauExperience.ToString() == query ||
-            sportif.IdSport.ToLower().Contains(query)
-            ).ToList();
+            if (query != "")
+            {
+                switch (filterSelect.Text)
+                {
+                    case "id":
+                        filteredSportifs = sportifs.Where(sportif => sportif.Id.ToString().Contains(query)).ToList();
+                        break;
+                    case "nom":
+                        filteredSportifs = sportifs.Where(sportif => sportif.Nom.ToLower().Contains(query)).ToList();
+                        break;
+                    case "prenom":
+                        filteredSportifs = sportifs.Where(sportif => sportif.Prenom.ToLower().Contains(query)).ToList();
+                        break;
+                    case "dateNaissance":
+                        filteredSportifs = sportifs.Where(sportif => sportif.DateNaissance.ToString("yyyy-MM-dd").ToLower().Contains(query)).ToList();
+                        break;
+                    case "rue":
+                        filteredSportifs = sportifs.Where(sportif => sportif.Rue.ToLower().Contains(query)).ToList();
+                        break;
+                    case "codePostal":
+                        filteredSportifs = sportifs.Where(sportif => sportif.CodePostal.ToLower().Contains(query)).ToList();
+                        break;
+                    case "ville":
+                        filteredSportifs = sportifs.Where(sportif => sportif.Ville.ToLower().Contains(query)).ToList();
+                        break;
+                    case "niveauExperience":
+                        filteredSportifs = sportifs.Where(sportif => sportif.NiveauExperience.ToString() == query).ToList();
+                        break;
+                    case "idSport":
+                        filteredSportifs = sportifs.Where(sportif => sportif.IdSport.ToLower().Contains(query)).ToList();
+                        break;
+                    default:
+                        filteredSportifs = sportifs.Where(sportif => sportif.Nom.ToLower().Contains(query) ||
+                           sportif.Prenom.ToLower().Contains(query) ||
+                           sportif.Id.ToString().Contains(query) ||
+                           sportif.DateNaissance.ToString("yyyy-MM-dd").ToLower().Contains(query) ||
+                           sportif.Rue.ToLower().Contains(query) ||
+                           sportif.CodePostal.ToLower().Contains(query) ||
+                           sportif.Ville.ToLower().Contains(query) ||
+                           sportif.NiveauExperience.ToString() == query ||
+                           sportif.IdSport.ToLower().Contains(query)
+                       ).ToList();
+                        break;
+                }
+            }
+            else
+            {
+                filteredSportifs = sportifs;
+            }
+            
             initSportifViewList(filteredSportifs);
         }
 
         private void Delete()
         {
-            MySqlConnection cnx = createMySqlCnx();
-            cnx.Open();
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM Sportif WHERE id = @id", cnx);
-            cmd.Parameters.AddWithValue("@id", listSportif.SelectedItems[0].Text);
-            cmd.ExecuteNonQuery();
-            cnx.Close();
-            sportifs = sportifs.Where(sportif => sportif.Id.ToString() != listSportif.SelectedItems[0].Text).ToList();
-            filter();
+            ListViewItem item = listSportif.SelectedItems[0];
+            DialogResult result = MessageBox.Show($"Voulez-vous vraiment supprimer : { item.SubItems[1].Text} {item.SubItems[2].Text}", "Supprimer", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                BDD.deleteData(item.Text);
+                BDD.closeCnx();
+                sportifs = sportifs.Where(sportif => sportif.Id.ToString() != listSportif.SelectedItems[0].Text).ToList();
+                filter();
+            }
         }
 
         private void initListSportif(MySqlDataReader reader) {
@@ -99,6 +129,7 @@ namespace appSportSio
                 filteredSportifs.Add(new Sportif(id, nom, prenom, dateNaissanse, rue, codePostal, ville, niveauExperience, idSport));
             }
             reader.Close();
+            BDD.closeCnx();
             initSportifViewList(filteredSportifs);
             
         }
@@ -149,7 +180,22 @@ namespace appSportSio
 
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Delete();
+           Delete();
+        }
+
+        private void listSportif_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filterSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filter();
+        }
+
+        private void SportSio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
