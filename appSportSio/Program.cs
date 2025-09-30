@@ -16,7 +16,7 @@ namespace appSportSio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SportSio());
+            Application.Run(new FrmMain());
         }
     }
 }

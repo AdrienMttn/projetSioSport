@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BiblioSportif;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -33,6 +34,23 @@ namespace OutilsBDD
             CNX.Open();
             MySqlCommand cmd = new MySqlCommand("DELETE FROM Sportif WHERE id = @id", CNX);
             cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void updateData(Sportif unSportif)
+        {
+            CNX = createMySqlCnx();
+            CNX.Open();
+            MySqlCommand cmd = new MySqlCommand("UPDATE Sportif SET nom = @nom, prenom = @prenom, dateNaissance = @dateNaissance, rue = @rue, codePostal = @codePostal, ville = @ville, niveauExperience = @niveauExperience, idSport = @idSport WHERE id = @id", CNX);
+            cmd.Parameters.AddWithValue("@id", unSportif.Id);
+            cmd.Parameters.AddWithValue("@nom", unSportif.Nom);
+            cmd.Parameters.AddWithValue("@prenom", unSportif.Prenom);
+            cmd.Parameters.AddWithValue("@dateNaissance", unSportif.DateNaissance);
+            cmd.Parameters.AddWithValue("@rue", unSportif.Rue);
+            cmd.Parameters.AddWithValue("@codePostal", unSportif.CodePostal);
+            cmd.Parameters.AddWithValue("@ville", unSportif.Ville);
+            cmd.Parameters.AddWithValue("@niveauExperience", unSportif.NiveauExperience);
+            cmd.Parameters.AddWithValue("@idSport", unSportif.IdSport);
             cmd.ExecuteNonQuery();
         }
 
