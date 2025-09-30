@@ -35,6 +35,7 @@
             this.editSportif = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAjouter = new System.Windows.Forms.Button();
             this.editSportif.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +96,19 @@
             this.modifierToolStripMenuItem.Text = "Modifier";
             this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
+            // btnAjouter
+            // 
+            this.btnAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjouter.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAjouter.Location = new System.Drawing.Point(931, 24);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(103, 36);
+            this.btnAjouter.TabIndex = 3;
+            this.btnAjouter.Text = "Ajouter +";
+            this.btnAjouter.UseVisualStyleBackColor = false;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
             // SportSio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -102,6 +116,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1046, 450);
+            this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.listSportif);
             this.Controls.Add(this.searchInput);
             this.Controls.Add(this.filterSelect);
@@ -124,6 +139,7 @@
         private System.Windows.Forms.ContextMenuStrip editSportif;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
+        private System.Windows.Forms.Button btnAjouter;
     }
 }
 

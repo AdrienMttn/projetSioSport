@@ -91,6 +91,9 @@ namespace appSportSio
             switch (mode)
             {
                 case 0:
+                    BDD.insertData(new Sportif(idSportif, txtName.Text, txtPren.Text, DateTime.Parse(dateTNaiss.Text), txtAdress.Text, txtCp.Text, txtVille.Text, int.Parse(txtNiv.Text), txtNomSport.Text));
+                    BDD.closeCnx();
+                    closeForm();
                     break;
                 case 1:
                     BDD.updateData(new Sportif(idSportif, txtName.Text, txtPren.Text, DateTime.Parse(dateTNaiss.Text), txtAdress.Text, txtCp.Text, txtVille.Text, int.Parse(txtNiv.Text), txtNomSport.Text));

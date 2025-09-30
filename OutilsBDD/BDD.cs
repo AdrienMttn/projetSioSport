@@ -54,6 +54,22 @@ namespace OutilsBDD
             cmd.ExecuteNonQuery();
         }
 
+        public static void insertData(Sportif unSportif)
+        {
+            CNX = createMySqlCnx();
+            CNX.Open();
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO Sportif (nom, prenom, dateNaissance, rue, codePostal, ville, niveauExperience, idSport) VALUES (@nom, @prenom, @dateNaissance, @rue, @codePostal, @ville, @niveauExperience, @idSport)", CNX);
+            cmd.Parameters.AddWithValue("@nom", unSportif.Nom);
+            cmd.Parameters.AddWithValue("@prenom", unSportif.Prenom);
+            cmd.Parameters.AddWithValue("@dateNaissance", unSportif.DateNaissance);
+            cmd.Parameters.AddWithValue("@rue", unSportif.Rue);
+            cmd.Parameters.AddWithValue("@codePostal", unSportif.CodePostal);
+            cmd.Parameters.AddWithValue("@ville", unSportif.Ville);
+            cmd.Parameters.AddWithValue("@niveauExperience", unSportif.NiveauExperience);
+            cmd.Parameters.AddWithValue("@idSport", unSportif.IdSport);
+            cmd.ExecuteNonQuery();
+        }
+
         public static void closeCnx()
         {
             if (CNX != null)

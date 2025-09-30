@@ -209,5 +209,16 @@ namespace appSportSio
             modifAdd.Show();
             this.Close();
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            Modif_Add modifAdd = new Modif_Add();
+            modifAdd.MdiParent = this.MdiParent;
+            modifAdd.StartPosition = FormStartPosition.Manual;
+            modifAdd.Location = new Point(0, 0);
+            modifAdd.Dock = DockStyle.Fill;
+            modifAdd.Show();
+            this.Close();
+        }
     }
 }
