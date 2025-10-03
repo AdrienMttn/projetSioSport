@@ -1,6 +1,6 @@
 ﻿namespace appSportSio
 {
-    partial class Modif_Add
+    partial class FrmModif_Add
     {
         /// <summary>
         /// Required designer variable.
@@ -53,6 +53,14 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.btnValider = new System.Windows.Forms.Button();
+            this.errorNom = new System.Windows.Forms.Label();
+            this.errorPren = new System.Windows.Forms.Label();
+            this.errorDateNaiss = new System.Windows.Forms.Label();
+            this.errorRue = new System.Windows.Forms.Label();
+            this.errorVille = new System.Windows.Forms.Label();
+            this.errorCp = new System.Windows.Forms.Label();
+            this.errorNv = new System.Windows.Forms.Label();
+            this.errorSport = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -111,9 +119,9 @@
             // 
             // txtNomSport
             // 
-            this.txtNomSport.Location = new System.Drawing.Point(799, 309);
+            this.txtNomSport.Location = new System.Drawing.Point(742, 309);
             this.txtNomSport.Name = "txtNomSport";
-            this.txtNomSport.Size = new System.Drawing.Size(100, 20);
+            this.txtNomSport.Size = new System.Drawing.Size(157, 20);
             this.txtNomSport.TabIndex = 7;
             // 
             // lblNom
@@ -191,7 +199,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(699, 309);
+            this.label7.Location = new System.Drawing.Point(642, 309);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 20);
             this.label7.TabIndex = 15;
@@ -297,11 +305,116 @@
             this.btnValider.UseVisualStyleBackColor = false;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
+            // errorNom
+            // 
+            this.errorNom.AutoSize = true;
+            this.errorNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorNom.ForeColor = System.Drawing.Color.Red;
+            this.errorNom.Location = new System.Drawing.Point(162, 125);
+            this.errorNom.Name = "errorNom";
+            this.errorNom.Size = new System.Drawing.Size(86, 13);
+            this.errorNom.TabIndex = 25;
+            this.errorNom.Text = "Entrer un nom";
+            this.errorNom.Visible = false;
+            // 
+            // errorPren
+            // 
+            this.errorPren.AutoSize = true;
+            this.errorPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorPren.ForeColor = System.Drawing.Color.Red;
+            this.errorPren.Location = new System.Drawing.Point(187, 168);
+            this.errorPren.Name = "errorPren";
+            this.errorPren.Size = new System.Drawing.Size(104, 13);
+            this.errorPren.TabIndex = 26;
+            this.errorPren.Text = "Entrer un prenom";
+            this.errorPren.Visible = false;
+            this.errorPren.Click += new System.EventHandler(this.errorPren_Click);
+            // 
+            // errorDateNaiss
+            // 
+            this.errorDateNaiss.AutoSize = true;
+            this.errorDateNaiss.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorDateNaiss.ForeColor = System.Drawing.Color.Red;
+            this.errorDateNaiss.Location = new System.Drawing.Point(700, 152);
+            this.errorDateNaiss.Name = "errorDateNaiss";
+            this.errorDateNaiss.Size = new System.Drawing.Size(174, 13);
+            this.errorDateNaiss.TabIndex = 27;
+            this.errorDateNaiss.Text = "Entrer une date de naissance";
+            this.errorDateNaiss.Visible = false;
+            // 
+            // errorRue
+            // 
+            this.errorRue.AutoSize = true;
+            this.errorRue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorRue.ForeColor = System.Drawing.Color.Red;
+            this.errorRue.Location = new System.Drawing.Point(150, 253);
+            this.errorRue.Name = "errorRue";
+            this.errorRue.Size = new System.Drawing.Size(88, 13);
+            this.errorRue.TabIndex = 28;
+            this.errorRue.Text = "Entrer une rue";
+            this.errorRue.Visible = false;
+            // 
+            // errorVille
+            // 
+            this.errorVille.AutoSize = true;
+            this.errorVille.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorVille.ForeColor = System.Drawing.Color.Red;
+            this.errorVille.Location = new System.Drawing.Point(504, 254);
+            this.errorVille.Name = "errorVille";
+            this.errorVille.Size = new System.Drawing.Size(93, 13);
+            this.errorVille.TabIndex = 29;
+            this.errorVille.Text = "Entrer une ville";
+            this.errorVille.Visible = false;
+            // 
+            // errorCp
+            // 
+            this.errorCp.AutoSize = true;
+            this.errorCp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorCp.ForeColor = System.Drawing.Color.Red;
+            this.errorCp.Location = new System.Drawing.Point(796, 254);
+            this.errorCp.Name = "errorCp";
+            this.errorCp.Size = new System.Drawing.Size(79, 13);
+            this.errorCp.TabIndex = 30;
+            this.errorCp.Text = "Entrer un CP";
+            this.errorCp.Visible = false;
+            // 
+            // errorNv
+            // 
+            this.errorNv.AutoSize = true;
+            this.errorNv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorNv.ForeColor = System.Drawing.Color.Red;
+            this.errorNv.Location = new System.Drawing.Point(269, 334);
+            this.errorNv.Name = "errorNv";
+            this.errorNv.Size = new System.Drawing.Size(101, 13);
+            this.errorNv.TabIndex = 31;
+            this.errorNv.Text = "Entrer un niveau";
+            this.errorNv.Visible = false;
+            // 
+            // errorSport
+            // 
+            this.errorSport.AutoSize = true;
+            this.errorSport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorSport.ForeColor = System.Drawing.Color.Red;
+            this.errorSport.Location = new System.Drawing.Point(739, 332);
+            this.errorSport.Name = "errorSport";
+            this.errorSport.Size = new System.Drawing.Size(91, 13);
+            this.errorSport.TabIndex = 32;
+            this.errorSport.Text = "Entrer un sport";
+            this.errorSport.Visible = false;
+            // 
             // Modif_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 450);
+            this.Controls.Add(this.errorSport);
+            this.Controls.Add(this.errorNv);
+            this.Controls.Add(this.errorCp);
+            this.Controls.Add(this.errorVille);
+            this.Controls.Add(this.errorRue);
+            this.Controls.Add(this.errorDateNaiss);
+            this.Controls.Add(this.errorPren);
+            this.Controls.Add(this.errorNom);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -367,5 +480,13 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnValider;
+        private System.Windows.Forms.Label errorNom;
+        private System.Windows.Forms.Label errorPren;
+        private System.Windows.Forms.Label errorDateNaiss;
+        private System.Windows.Forms.Label errorRue;
+        private System.Windows.Forms.Label errorVille;
+        private System.Windows.Forms.Label errorCp;
+        private System.Windows.Forms.Label errorNv;
+        private System.Windows.Forms.Label errorSport;
     }
 }

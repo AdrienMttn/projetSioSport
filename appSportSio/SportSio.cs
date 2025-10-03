@@ -201,7 +201,7 @@ namespace appSportSio
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var sportifToEdit = sportifs.Where(sportif => sportif.Id.ToString() == listSportif.SelectedItems[0].SubItems[0].Text).ToList()[0];
-            Modif_Add modifAdd = new Modif_Add((Sportif)sportifToEdit);
+            FrmModif_Add modifAdd = new FrmModif_Add((Sportif)sportifToEdit);
             modifAdd.MdiParent = this.MdiParent;
             modifAdd.StartPosition = FormStartPosition.Manual;
             modifAdd.Location = new Point(0, 0);
@@ -212,7 +212,7 @@ namespace appSportSio
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            Modif_Add modifAdd = new Modif_Add();
+            FrmModif_Add modifAdd = new FrmModif_Add();
             modifAdd.MdiParent = this.MdiParent;
             modifAdd.StartPosition = FormStartPosition.Manual;
             modifAdd.Location = new Point(0, 0);

@@ -63,9 +63,9 @@
             // 
             this.listSportif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listSportif.HideSelection = false;
-            this.listSportif.Location = new System.Drawing.Point(0, 70);
+            this.listSportif.Location = new System.Drawing.Point(1, 66);
             this.listSportif.Name = "listSportif";
-            this.listSportif.Size = new System.Drawing.Size(1048, 381);
+            this.listSportif.Size = new System.Drawing.Size(1048, 362);
             this.listSportif.TabIndex = 2;
             this.listSportif.UseCompatibleStateImageBehavior = false;
             this.listSportif.View = System.Windows.Forms.View.Details;
