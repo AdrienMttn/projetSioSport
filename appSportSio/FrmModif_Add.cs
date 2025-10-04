@@ -21,7 +21,7 @@ namespace appSportSio
 
         private void closeForm()
         {
-            SportSio frmSportSio = new SportSio();
+            FrmSportSio frmSportSio = new FrmSportSio();
             frmSportSio.MdiParent = this.MdiParent;
             frmSportSio.Dock = DockStyle.Fill;
             frmSportSio.StartPosition = FormStartPosition.Manual;

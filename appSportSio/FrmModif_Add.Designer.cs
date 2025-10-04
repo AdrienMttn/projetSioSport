@@ -243,7 +243,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.label8);
             this.panel1.Location = new System.Drawing.Point(112, 58);
             this.panel1.Name = "panel1";
@@ -252,7 +252,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.Adresse);
             this.panel2.Location = new System.Drawing.Point(112, 188);
             this.panel2.Name = "panel2";
@@ -274,7 +274,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel3.Controls.Add(this.label9);
             this.panel3.Location = new System.Drawing.Point(112, 269);
             this.panel3.Name = "panel3";
@@ -402,7 +402,7 @@
             this.errorSport.Text = "Entrer un sport";
             this.errorSport.Visible = false;
             // 
-            // Modif_Add
+            // FrmModif_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -438,7 +438,7 @@
             this.Controls.Add(this.txtPren);
             this.Controls.Add(this.txtName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Modif_Add";
+            this.Name = "FrmModif_Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Modif_Add";
             this.Load += new System.EventHandler(this.Modif_Add_Load);

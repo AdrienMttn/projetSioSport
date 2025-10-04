@@ -16,11 +16,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace appSportSio
 {
-    public partial class SportSio : Form
+    public partial class FrmSportSio : Form
     {
         List<Sportif> sportifs;
         List<Sportif> filteredSportifs;
-        public SportSio()
+        public FrmSportSio()
         {
             InitializeComponent();
             initValue();

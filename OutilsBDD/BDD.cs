@@ -70,6 +70,60 @@ namespace OutilsBDD
             cmd.ExecuteNonQuery();
         }
 
+        public static bool login(string name, string password)
+        {
+            CNX = createMySqlCnx();
+            CNX.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Utilisateur WHERE name = @name AND password = @password", CNX);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@password", password);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Close();
+                return true;
+            }
+            else
+            {
+                reader.Close();
+                return false;
+            }
+        }
+
+        public static bool createAccount(string name, string password)
+        {
+            CNX = createMySqlCnx();
+            CNX.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Utilisateur WHERE name = @name", CNX);
+            cmd.Parameters.AddWithValue("@name", name);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Close();
+                return false;
+            }
+            else
+            {
+                reader.Close();
+                MySqlCommand cmdInsert = new MySqlCommand("INSERT INTO Utilisateur (name, password) VALUES (@name, @password)", CNX);
+                cmdInsert.Parameters.AddWithValue("@name", name);
+                cmdInsert.Parameters.AddWithValue("@password", password);
+                cmdInsert.ExecuteNonQuery();
+                return true;
+            }
+        }
+
+        public static bool changePassword(string name, string password) 
+        {
+            CNX = createMySqlCnx();
+            CNX.Open();
+            MySqlCommand cmd = new MySqlCommand("UPDATE Utilisateur SET password = @password WHERE name = @name", CNX);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@password", password);
+            int rowsAffected = cmd.ExecuteNonQuery();
+            return rowsAffected == 1;
+        }
+
         public static void closeCnx()
         {
             if (CNX != null)

@@ -16,10 +16,14 @@ namespace appSportSio
         public FrmMain()
         {
             InitializeComponent();
-            SportSio frmSportSio = new SportSio();
-            frmSportSio.MdiParent = this;
-            frmSportSio.Dock = DockStyle.Fill;
-            frmSportSio.Show();
+            //SportSio frmSportSio = new SportSio();
+            //frmSportSio.MdiParent = this;
+            //frmSportSio.Dock = DockStyle.Fill;
+            //frmSportSio.Show();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.MdiParent = this;
+            frmLogin.Dock = DockStyle.Fill;
+            frmLogin.Show();
         }
 
 

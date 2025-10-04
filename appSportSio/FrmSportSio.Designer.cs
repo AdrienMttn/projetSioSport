@@ -1,6 +1,6 @@
 ﻿namespace appSportSio
 {
-    partial class SportSio
+    partial class FrmSportSio
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -63,9 +63,9 @@
             // 
             this.listSportif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listSportif.HideSelection = false;
-            this.listSportif.Location = new System.Drawing.Point(1, 66);
+            this.listSportif.Location = new System.Drawing.Point(50, 82);
             this.listSportif.Name = "listSportif";
-            this.listSportif.Size = new System.Drawing.Size(1048, 362);
+            this.listSportif.Size = new System.Drawing.Size(940, 316);
             this.listSportif.TabIndex = 2;
             this.listSportif.UseCompatibleStateImageBehavior = false;
             this.listSportif.View = System.Windows.Forms.View.Details;
@@ -101,7 +101,7 @@
             this.btnAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAjouter.Location = new System.Drawing.Point(931, 24);
+            this.btnAjouter.Location = new System.Drawing.Point(911, 24);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(103, 36);
             this.btnAjouter.TabIndex = 3;
@@ -109,11 +109,11 @@
             this.btnAjouter.UseVisualStyleBackColor = false;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
-            // SportSio
+            // FrmSportSio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1046, 450);
             this.Controls.Add(this.btnAjouter);
@@ -121,7 +121,7 @@
             this.Controls.Add(this.searchInput);
             this.Controls.Add(this.filterSelect);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "SportSio";
+            this.Name = "FrmSportSio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Affichage des sportifs";
             this.Load += new System.EventHandler(this.SportSio_Load);

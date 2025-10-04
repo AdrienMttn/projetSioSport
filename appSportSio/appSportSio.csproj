@@ -98,6 +98,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,19 +116,31 @@
     <Compile Include="FrmModif_Add.Designer.cs">
       <DependentUpon>FrmModif_Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="SportSio.cs">
+    <Compile Include="FrmResetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SportSio.Designer.cs">
-      <DependentUpon>SportSio.cs</DependentUpon>
+    <Compile Include="FrmResetPassword.Designer.cs">
+      <DependentUpon>FrmResetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSportSio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSportSio.Designer.cs">
+      <DependentUpon>FrmSportSio.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModif_Add.resx">
       <DependentUpon>FrmModif_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmResetPassword.resx">
+      <DependentUpon>FrmResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -134,8 +152,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SportSio.resx">
-      <DependentUpon>SportSio.cs</DependentUpon>
+    <EmbeddedResource Include="FrmSportSio.resx">
+      <DependentUpon>FrmSportSio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
