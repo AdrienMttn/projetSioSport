@@ -81,6 +81,7 @@ namespace appSportSio
                     }
                     else 
                     {
+                        ((FrmMain)this.MdiParent).SetCurrentUser(inputName.Text, inputPwd.Text);
                         changePage();
                     }
                     break;

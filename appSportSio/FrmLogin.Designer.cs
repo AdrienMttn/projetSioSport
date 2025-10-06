@@ -38,6 +38,7 @@
             this.inputName = new System.Windows.Forms.TextBox();
             this.txtConnexion = new System.Windows.Forms.Label();
             this.pnlCreate = new System.Windows.Forms.Panel();
+            this.errorUserExist = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.errorConfirmMdpCreate = new System.Windows.Forms.Label();
             this.errorMdpCreate = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnSetCreate = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.errorUserExist = new System.Windows.Forms.Label();
             this.pnlLogin.SuspendLayout();
             this.pnlCreate.SuspendLayout();
             this.pnlSetLogin.SuspendLayout();
@@ -186,6 +186,18 @@
             this.pnlCreate.Name = "pnlCreate";
             this.pnlCreate.Size = new System.Drawing.Size(523, 448);
             this.pnlCreate.TabIndex = 1;
+            // 
+            // errorUserExist
+            // 
+            this.errorUserExist.AutoSize = true;
+            this.errorUserExist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorUserExist.ForeColor = System.Drawing.Color.Red;
+            this.errorUserExist.Location = new System.Drawing.Point(159, 372);
+            this.errorUserExist.Name = "errorUserExist";
+            this.errorUserExist.Size = new System.Drawing.Size(210, 13);
+            this.errorUserExist.TabIndex = 38;
+            this.errorUserExist.Text = "Un compte avec ce nom existe déjà";
+            this.errorUserExist.Visible = false;
             // 
             // btnCreate
             // 
@@ -425,18 +437,6 @@
             this.label9.Size = new System.Drawing.Size(265, 24);
             this.label9.TabIndex = 0;
             this.label9.Text = "Pas encore dans l\'équipe ?";
-            // 
-            // errorUserExist
-            // 
-            this.errorUserExist.AutoSize = true;
-            this.errorUserExist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errorUserExist.ForeColor = System.Drawing.Color.Red;
-            this.errorUserExist.Location = new System.Drawing.Point(159, 372);
-            this.errorUserExist.Name = "errorUserExist";
-            this.errorUserExist.Size = new System.Drawing.Size(210, 13);
-            this.errorUserExist.TabIndex = 38;
-            this.errorUserExist.Text = "Un compte avec ce nom existe déjà";
-            this.errorUserExist.Visible = false;
             // 
             // FrmLogin
             // 

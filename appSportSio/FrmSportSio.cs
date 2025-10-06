@@ -26,8 +26,10 @@ namespace appSportSio
             initValue();
         }
 
+        # region initialisation des valeurs
         private void initValue()
         {
+            
             MySqlDataReader reader = BDD.initData();
             for (int i = 0; i < reader.FieldCount; i++)
             {
@@ -39,6 +41,12 @@ namespace appSportSio
             listSportif.GridLines = true;
             listSportif.AllowColumnReorder = true;
             initListSportif(reader); 
+        }
+        
+
+        private void SportSio_Load(object sender, EventArgs e)
+        {
+            lblBonjour.Text = "Bonjour " + ((FrmMain)this.MdiParent).GetCurrentUser().Name;
         }
 
         private void filter()
@@ -96,7 +104,7 @@ namespace appSportSio
             
             initSportifViewList(filteredSportifs);
         }
-
+        #endregion
         private void Delete()
         {
             ListViewItem item = listSportif.SelectedItems[0];
@@ -193,10 +201,7 @@ namespace appSportSio
             filter();
         }
 
-        private void SportSio_Load(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -219,6 +224,12 @@ namespace appSportSio
             modifAdd.Dock = DockStyle.Fill;
             modifAdd.Show();
             this.Close();
+        }
+
+        private void txtChangePwd_Click(object sender, EventArgs e)
+        {
+            FrmResetPassword frmResetPassword = new FrmResetPassword(((FrmMain)this.MdiParent).GetCurrentUser());
+            frmResetPassword.Show();
         }
     }
 }

@@ -36,6 +36,8 @@
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAjouter = new System.Windows.Forms.Button();
+            this.lblBonjour = new System.Windows.Forms.Label();
+            this.txtChangePwd = new System.Windows.Forms.Label();
             this.editSportif.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +47,7 @@
             this.filterSelect.FormattingEnabled = true;
             this.filterSelect.Items.AddRange(new object[] {
             "all"});
-            this.filterSelect.Location = new System.Drawing.Point(88, 33);
+            this.filterSelect.Location = new System.Drawing.Point(235, 33);
             this.filterSelect.Name = "filterSelect";
             this.filterSelect.Size = new System.Drawing.Size(121, 21);
             this.filterSelect.TabIndex = 0;
@@ -53,7 +55,8 @@
             // 
             // searchInput
             // 
-            this.searchInput.Location = new System.Drawing.Point(306, 33);
+            this.searchInput.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.searchInput.Location = new System.Drawing.Point(372, 34);
             this.searchInput.Name = "searchInput";
             this.searchInput.Size = new System.Drawing.Size(364, 20);
             this.searchInput.TabIndex = 1;
@@ -61,6 +64,9 @@
             // 
             // listSportif
             // 
+            this.listSportif.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listSportif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listSportif.HideSelection = false;
             this.listSportif.Location = new System.Drawing.Point(50, 82);
@@ -98,6 +104,7 @@
             // 
             // btnAjouter
             // 
+            this.btnAjouter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.ForeColor = System.Drawing.Color.Transparent;
@@ -109,6 +116,29 @@
             this.btnAjouter.UseVisualStyleBackColor = false;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
+            // lblBonjour
+            // 
+            this.lblBonjour.AutoSize = true;
+            this.lblBonjour.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBonjour.ForeColor = System.Drawing.Color.Transparent;
+            this.lblBonjour.Location = new System.Drawing.Point(0, -1);
+            this.lblBonjour.Name = "lblBonjour";
+            this.lblBonjour.Size = new System.Drawing.Size(92, 18);
+            this.lblBonjour.TabIndex = 4;
+            this.lblBonjour.Text = "Bonjour, ...";
+            // 
+            // txtChangePwd
+            // 
+            this.txtChangePwd.AutoSize = true;
+            this.txtChangePwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChangePwd.ForeColor = System.Drawing.Color.Transparent;
+            this.txtChangePwd.Location = new System.Drawing.Point(0, 24);
+            this.txtChangePwd.Name = "txtChangePwd";
+            this.txtChangePwd.Size = new System.Drawing.Size(153, 13);
+            this.txtChangePwd.TabIndex = 5;
+            this.txtChangePwd.Text = "Changer de Mot de Passe";
+            this.txtChangePwd.Click += new System.EventHandler(this.txtChangePwd_Click);
+            // 
             // FrmSportSio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -116,6 +146,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1046, 450);
+            this.Controls.Add(this.txtChangePwd);
+            this.Controls.Add(this.lblBonjour);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.listSportif);
             this.Controls.Add(this.searchInput);
@@ -140,6 +172,8 @@
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
         private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.Label lblBonjour;
+        private System.Windows.Forms.Label txtChangePwd;
     }
 }
 

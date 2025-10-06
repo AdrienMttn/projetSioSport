@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BiblioSportif;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +14,21 @@ namespace appSportSio
     public partial class FrmMain : Form
     {
 
+
+        private User currentUser;
+
+
+        public void SetCurrentUser(string name, string password)
+        {
+            this.currentUser = new User(name, password);
+        }
+        public User GetCurrentUser()
+        {
+            return this.currentUser;
+        }
         public FrmMain()
         {
             InitializeComponent();
-            //SportSio frmSportSio = new SportSio();
-            //frmSportSio.MdiParent = this;
-            //frmSportSio.Dock = DockStyle.Fill;
-            //frmSportSio.Show();
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.MdiParent = this;
             frmLogin.Dock = DockStyle.Fill;

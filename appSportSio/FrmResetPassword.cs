@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BiblioSportif;
 using OutilsBDD;
 
 namespace appSportSio
@@ -18,6 +19,12 @@ namespace appSportSio
             InitializeComponent();
         }
 
+        public FrmResetPassword(User user)
+        {
+            InitializeComponent();
+            inputName.Text = user.Name;
+            inputName.Enabled = false;
+        }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
