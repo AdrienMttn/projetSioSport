@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BiblioSportif;
 using OutilsBDD;
-using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace appSportSio
 {
@@ -58,6 +57,7 @@ namespace appSportSio
                     }
                     else
                     {
+                        ((FrmMain)this.MdiParent).SetCurrentUser(inputNameInscription.Text, inputPwdInscription.Text);
                         changePage();
                     }
                     break;

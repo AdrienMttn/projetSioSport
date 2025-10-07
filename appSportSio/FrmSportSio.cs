@@ -1,18 +1,13 @@
 ﻿using BiblioSportif;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Tls.Crypto.Impl.BC;
 using OutilsBDD;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace appSportSio
 {
@@ -49,6 +44,56 @@ namespace appSportSio
             lblBonjour.Text = "Bonjour " + ((FrmMain)this.MdiParent).GetCurrentUser().Name;
         }
 
+        private void initListSportif(MySqlDataReader reader)
+        {
+            sportifs = new List<Sportif>();
+            filteredSportifs = new List<Sportif>();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["id"]);
+                string nom = Convert.ToString(reader["nom"]);
+                string prenom = Convert.ToString(reader["prenom"]);
+                DateTime dateNaissanse = Convert.ToDateTime(reader["dateNaissance"]);
+                string rue = Convert.ToString(reader["rue"]);
+                string codePostal = Convert.ToString(reader["codePostal"]);
+                string ville = Convert.ToString(reader["ville"]);
+                int niveauExperience = Convert.ToInt32(reader["niveauExperience"]);
+                string idSport = Convert.ToString(reader["idSport"]);
+                sportifs.Add(new Sportif(id, nom, prenom, dateNaissanse, rue, codePostal, ville, niveauExperience, idSport));
+                filteredSportifs.Add(new Sportif(id, nom, prenom, dateNaissanse, rue, codePostal, ville, niveauExperience, idSport));
+            }
+            reader.Close();
+            BDD.closeCnx();
+            initSportifViewList(filteredSportifs);
+
+        }
+        private void initSportifViewList(List<Sportif> lesSportifs)
+        {
+            listSportif.Items.Clear();
+            foreach (Sportif s in lesSportifs)
+            {
+                ListViewItem item = new ListViewItem(Convert.ToString(s.Id), s.Nom);
+                item.SubItems.Add(s.Nom);
+                item.SubItems.Add(s.Prenom);
+                item.SubItems.Add(s.DateNaissance.ToString("yyyy-MM-dd"));
+                item.SubItems.Add(s.Rue);
+                item.SubItems.Add(s.CodePostal);
+                item.SubItems.Add(s.Ville);
+                item.SubItems.Add(Convert.ToString(s.NiveauExperience));
+                item.SubItems.Add(s.IdSport);
+                listSportif.Items.Add(item);
+            }
+            foreach (ColumnHeader col in listSportif.Columns)
+            {
+                col.Width = -2; // -2 = ajuste à la taille du contenu
+            }
+        }
+
+        #endregion
+
+
+        # region Gestion du filtre
         private void filter()
         {
             string query = searchInput.Text.ToLower();
@@ -101,10 +146,12 @@ namespace appSportSio
             {
                 filteredSportifs = sportifs;
             }
-            
+
             initSportifViewList(filteredSportifs);
         }
         #endregion
+
+
         private void Delete()
         {
             ListViewItem item = listSportif.SelectedItems[0];
@@ -118,64 +165,11 @@ namespace appSportSio
             }
         }
 
-        private void initListSportif(MySqlDataReader reader) {
-            sportifs = new List<Sportif>();
-            filteredSportifs = new List<Sportif>();
-
-            while (reader.Read())
-            {
-                int id = Convert.ToInt32(reader["id"]);
-                string nom = Convert.ToString(reader["nom"]);
-                string prenom = Convert.ToString(reader["prenom"]);
-                DateTime dateNaissanse = Convert.ToDateTime(reader["dateNaissance"]);
-                string rue = Convert.ToString(reader["rue"]);
-                string codePostal = Convert.ToString(reader["codePostal"]);
-                string ville = Convert.ToString(reader["ville"]);
-                int niveauExperience = Convert.ToInt32(reader["niveauExperience"]);
-                string idSport = Convert.ToString(reader["idSport"]);
-                sportifs.Add(new Sportif(id, nom, prenom, dateNaissanse, rue, codePostal, ville, niveauExperience, idSport));
-                filteredSportifs.Add(new Sportif(id, nom, prenom, dateNaissanse, rue, codePostal, ville, niveauExperience, idSport));
-            }
-            reader.Close();
-            BDD.closeCnx();
-            initSportifViewList(filteredSportifs);
-            
-        }
-        private void initSportifViewList(List<Sportif> lesSportifs)
-        {
-            listSportif.Items.Clear();
-            foreach (Sportif s in lesSportifs)
-            {
-                ListViewItem item = new ListViewItem(Convert.ToString(s.Id), s.Nom);
-                item.SubItems.Add(s.Nom);
-                item.SubItems.Add(s.Prenom);
-                item.SubItems.Add(s.DateNaissance.ToString("yyyy-MM-dd"));
-                item.SubItems.Add(s.Rue);
-                item.SubItems.Add(s.CodePostal);
-                item.SubItems.Add(s.Ville);
-                item.SubItems.Add(Convert.ToString(s.NiveauExperience));
-                item.SubItems.Add(s.IdSport);
-                listSportif.Items.Add(item);
-            }
-            foreach (ColumnHeader col in listSportif.Columns)
-            {
-                col.Width = -2; // -2 = ajuste à la taille du contenu
-            }
-        }
+       
 
         private void searchInput_TextChanged(object sender, EventArgs e)
         {
             filter();
-        }
-
-        private void listSportif_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
         }
 
         private void listSportif_MouseClick(object sender, MouseEventArgs e)
@@ -188,20 +182,12 @@ namespace appSportSio
 
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           Delete();
+            Delete();
         }
-
-        private void listSportif_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void filterSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             filter();
         }
-
-     
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -231,5 +217,20 @@ namespace appSportSio
             FrmResetPassword frmResetPassword = new FrmResetPassword(((FrmMain)this.MdiParent).GetCurrentUser());
             frmResetPassword.Show();
         }
+
+
+        private void listSportif_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+        private void listSportif_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

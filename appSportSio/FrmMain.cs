@@ -17,7 +17,6 @@ namespace appSportSio
 
         private User currentUser;
 
-
         public void SetCurrentUser(string name, string password)
         {
             this.currentUser = new User(name, password);
